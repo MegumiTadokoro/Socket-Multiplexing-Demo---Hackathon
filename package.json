@@ -2,5 +2,7 @@
   "name": "MultiplexingDemo",
   "version": "0.0.1",
   "description": "hackathon's grading system's demo",
-  "dependencies": {}
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
