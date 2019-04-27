@@ -1,3 +1,4 @@
+import io from '../app.js';
 var app = document.getElementById("main");
 
 function render (gameID) {
@@ -6,11 +7,13 @@ function render (gameID) {
     var buttonID = 'the-button' + gameID;
     var mess = document.createElement('ul');
     mess.setAttribute('id', messID);
-    var button = document.createElement('input');
+    var input = document.createElement('input');
+    input.setAttribute('id', buttonID);
+    input.setAttribute('autocomplete', 'off');
+    var button = document.createElement('button');
     button.innerText = "Send Data";
-    button.setAttribute('id', buttonID);
-    button.setAttribute('autocomplete', 'off');
     var form = document.createElement('form');
+    form.appendChild(input);
     form.appendChild(button);
 
     button.onclick = function(event) {
@@ -25,9 +28,10 @@ function render (gameID) {
         text.innerText = msg;
         mess.appendChild(text);
     });
+
+    app.appendChild(mess);
+    app.appendChild(form);
 }
 
 var game = [1, 2];
-for(let i = 0; i < game.length; i++) {
-    app.innerHTML = app.innerHTML + render(game[i]);
-}
+for(let i = 0; i < game.length; i++) render(game[i]);
